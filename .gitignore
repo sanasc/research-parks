@@ -1,3 +1,8 @@
 
 *.xml
 *.iml
+data/allChicago.csv
+data/allHouston.csv
+data/allNY.csv
+data/allLA.csv
+data/allPh.csv

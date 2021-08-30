@@ -3,16 +3,18 @@ import json
 
 filename = "allPh"
 pdata = pd.read_csv("data/" + filename + ".csv")
-pdata['date'] = pd.to_datetime(pdata["date_range_start"][0:10])
-pdata.sort_values("date")
+#pdata['date'] = pd.to_datetime(pdata["date_range_start"][0:10])
+#pdata.sort_values("date")
 
 dict = {}
 dict["date"] = []
 dict["visits"] = []
 for index, row in pdata.iterrows():
-    month = row["date"]
+    month = row["date_range_start"]
 
     month = str(month)[0:7]
+    if month == "NaT":
+        print("hi")
 
     if row["visits_by_day"] != "visits_by_day":
         arr = json.loads(row["visits_by_day"])
@@ -28,4 +30,4 @@ for index, row in pdata.iterrows():
 #print(dict)
 
 resultdf = pd.DataFrame.from_dict(dict)
-resultdf.to_csv(path_or_buf="data/" + filename + "output.csv", index=False)
+resultdf.to_csv(path_or_buf="data/" + filename + "Output.csv", index=False)
