@@ -6,3 +6,4 @@ data/allHouston.csv
 data/allNY.csv
 data/allLA.csv
 data/allPh.csv
+*.csv
