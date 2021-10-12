@@ -7,7 +7,8 @@ parkdata["date"] = pd.to_datetime(parkdata["time"].str[0:10])
 parkdata.sort_values("date")
 
 dict = {}
-
+dict['date'] = []
+dict['visits'] = []
 for index in parkdata["index"]:
     month = parkdata["date"][index]
     month = month.strftime("%Y-%m-")
@@ -21,7 +22,9 @@ for index in parkdata["index"]:
         #print(x)
         date = ('0' + str(index)) if index < 10 else str(index)
         #print(date)
-        dict[month + date] = [x]
+        #dict[month + date] = [x]
+        dict['date'].append(month + date)
+        dict["visits"].append(x)
         index+=1
 #print(dict)
 
